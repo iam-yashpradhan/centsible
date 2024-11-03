@@ -28,12 +28,15 @@ Ensure you have the following installed:
 
 ### Installation
 
-### Backend Repo
-
-https://github.com/iam-yashpradhan/centsible-backend
-
 #### Clone the repository
 
 ```bash
 git clone https://github.com/your-username/centisible.git
 cd centisible
+
+npm install
+npm start
+
+### Backend Repo
+
+https://github.com/iam-yashpradhan/centsible-backend
