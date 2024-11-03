@@ -107,26 +107,14 @@ const MerchantWallet = () => {
 									</div>
 									<div className="me-3 mb-3">
 										<p className="fs-14 mb-1">VALID THRU</p>
-										<span className="text-black">08/21</span>
+										<span className="text-black">08/28</span>
 									</div>
 									<div className="me-3 mb-3">
 										<p className="fs-14 mb-1">CARD HOLDER</p>
 										<span className="text-black">{merchant.merchant_name}</span>
 									</div>
 									<span className="fs-20 text-black font-w500 me-3 mb-3">**** **** **** 1234</span>
-									<Dropdown className="mb-auto">
-										<Dropdown.Toggle variant="" as="div" className="btn-link i-false" >	
-											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M10 11.9999C10 13.1045 10.8954 13.9999 12 13.9999C13.1046 13.9999 14 13.1045 14 11.9999C14 10.8954 13.1046 9.99994 12 9.99994C10.8954 9.99994 10 10.8954 10 11.9999Z" fill="black"/>
-												<path d="M10 4.00006C10 5.10463 10.8954 6.00006 12 6.00006C13.1046 6.00006 14 5.10463 14 4.00006C14 2.89549 13.1046 2.00006 12 2.00006C10.8954 2.00006 10 2.89549 10 4.00006Z" fill="black"/>
-												<path d="M10 20C10 21.1046 10.8954 22 12 22C13.1046 22 14 21.1046 14 20C14 18.8954 13.1046 18 12 18C10.8954 18 10 18.8954 10 20Z" fill="black"/>
-											</svg>
-										</Dropdown.Toggle>	
-										<Dropdown.Menu alignRight={true} className="dropdown-menu-right">
-											<Dropdown.Item >Delete </Dropdown.Item>
-											<Dropdown.Item >Edit </Dropdown.Item>		
-										</Dropdown.Menu>	
-									</Dropdown>
+									
 								</div>
 								<div className="card-body">
 									<div className="progress mb-4" style={{height:"18px"}}>

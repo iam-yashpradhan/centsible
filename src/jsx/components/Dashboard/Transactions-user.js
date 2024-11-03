@@ -5,7 +5,7 @@ import {DropdownBlog} from './Invoices';
 import axios from 'axios';
 
 
-const Transactions = () => {
+const TransactionsUser = () => {
 	// State to store transactions
 	const [transactions, setTransactions] = useState([]);
 	const [error, setError] = useState(null);
@@ -15,13 +15,13 @@ const Transactions = () => {
 	// Function to fetch transactions data using Axios
 	const fetchTransactions = async () => {
 	  try {
-		const valueFromLocalStorage = localStorage.getItem('merchant_id'); // Replace 'yourKey' with the actual key
+		const valueFromLocalStorage = localStorage.getItem('user_id'); // Replace 'yourKey' with the actual key
 		if (valueFromLocalStorage) {
 			console.log(valueFromLocalStorage)
-			const merchant_id = valueFromLocalStorage
+			const user_id = valueFromLocalStorage
 		   
 		
-		const response = await axios.get(`http://localhost:8000/transactions?merchant_id=${merchant_id}`);
+		const response = await axios.get(`http://localhost:8000/transactions?user_id=${user_id}`);
 		console.log(response.data.transactions)
 		setTransactions(response.data.transactions);
 
@@ -103,4 +103,4 @@ function IconRed(){
 		</>
 	)
 }
-export default Transactions;
+export default TransactionsUser;

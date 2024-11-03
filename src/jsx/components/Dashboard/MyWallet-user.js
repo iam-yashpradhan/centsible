@@ -1,4 +1,4 @@
-import React,{Fragment, useState} from 'react';
+import React,{Fragment, useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {Dropdown, Modal } from "react-bootstrap";
 import Donut2 from '../Mophy/MyWallet/Donut2';
@@ -6,7 +6,8 @@ import Donut2 from '../Mophy/MyWallet/Donut2';
 import TransferForm from './TransferForm';
 // import { accordionBlog } from './../Mophy/MyWallet/TabData';
 // import { IconGreen, CompleteBlog, AccordBox } from './../Mophy/MyWallet/TabData';
-import Transactions from './Transactions';
+import TransactionsUser from './Transactions-user';
+import axios from 'axios';
 
 import avt1 from './../../../images/avatar/15.png';
 import avt2 from './../../../images/avatar/16.png';
@@ -27,6 +28,27 @@ console.log(user_id)
 const UserWallet = () => {
 	const [sendMessage, setSendMessage] = useState(false);
 	const [showTransferForm, setShowTransferForm] = useState(false);
+	const [user, setUser] = useState([]);
+	const [error, setError] = useState(null);
+
+	const fetchUsers = async () => {
+		try {
+		  const usersAPI = `http://localhost:8000/users/${user_id}`;
+		  const response = await axios.get(usersAPI); // Fetching data from the API
+		  
+		  setUser(response.data);
+		  console.log(response.data)
+		  console.log(user.data) // Storing the response data in state
+		} catch (err) {
+		  setError('Error fetching transactions'); // Handle errors
+		  console.error(err);
+		}
+	  };
+
+	  useEffect(() => {
+		fetchUsers(); // Call fetch function on mount
+	  }, [user_id]);
+
 	//const [transactions, setTransactions] = useState(accordionBlog);
 	// const handleTransfer = (userId, amount) => {
     //     const newTransaction = {
@@ -59,18 +81,18 @@ const UserWallet = () => {
 										</svg>
 										<div className="me-auto">
 											<h5 className="fs-20 text-black font-w600">Main Balance</h5>
-											<span className="text-num text-black font-w600">$673,412.66</span>
+											<span className="text-num text-black font-w600">${user.balance}</span>
 										</div>
 									</div>
-									<div className="me-3 mb-3">
+									{/* <div className="me-3 mb-3">
 										<p className="fs-14 mb-1">VALID THRU</p>
 										<span className="text-black">08/21</span>
-									</div>
+									</div> */}
 									<div className="me-3 mb-3">
-										<p className="fs-14 mb-1">CARD HOLDER</p>
-										<span className="text-black">Yash Pradhan</span>
+										<p className="fs-14 mb-1">Username</p>
+										<span className="text-black">${user.username}</span>
 									</div>
-									<span className="fs-20 text-black font-w500 me-3 mb-3">**** **** **** 1234</span>
+									{/* <span className="fs-20 text-black font-w500 me-3 mb-3">**** **** **** 1234</span> */}
 									<Dropdown className="mb-auto">
 										<Dropdown.Toggle variant="" as="div" className="btn-link i-false" >	
 											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -80,8 +102,9 @@ const UserWallet = () => {
 											</svg>
 										</Dropdown.Toggle>	
 										<Dropdown.Menu alignRight={true} className="dropdown-menu-right">
-											<Dropdown.Item >Delete </Dropdown.Item>
-											<Dropdown.Item >Edit </Dropdown.Item>		
+											<Dropdown.Item >Invest via Plaid </Dropdown.Item>
+											<Dropdown.Item >Donate to Charity </Dropdown.Item>		
+											<Dropdown.Item >Redeem Giftcards </Dropdown.Item>	
 										</Dropdown.Menu>	
 									</Dropdown>
 								</div>
@@ -99,7 +122,7 @@ const UserWallet = () => {
 													<small className="text-secondary">24%</small>
 												</div>
 												<div className="media-body">
-													<h4 className="fs-15 text-black font-w600 mb-0">Installment</h4>
+													<h4 className="fs-15 text-black font-w600 mb-0">Gift Cards</h4>
 													<span className="fs-14">$5,412</span>
 												</div>
 											</div>
@@ -118,28 +141,7 @@ const UserWallet = () => {
 										</div>
 										
 										<div className="col-xl-12 col-xxl-12 col-sm-12">
-										<div className="card bg-primary">
-											<div className="card-body p-3">
-												<div className="d-flex align-items-center">
-													<span className="bg-white rounded-circle p-3 me-4">
-														<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-															<g opacity="0.98" clip-path="">
-															<path d="M9.77812 2.0125C10.1062 2.69062 9.81641 3.51094 9.13828 3.83906C7.25156 4.74688 5.65469 6.15781 4.51719 7.92422C3.35234 9.73437 2.73438 11.8344 2.73438 14C2.73438 20.2125 7.7875 25.2656 14 25.2656C20.2125 25.2656 25.2656 20.2125 25.2656 14C25.2656 11.8344 24.6477 9.73437 23.4883 7.91875C22.3563 6.15234 20.7539 4.74141 18.8672 3.83359C18.1891 3.50547 17.8992 2.69063 18.2273 2.00703C18.5555 1.32891 19.3703 1.03906 20.0539 1.36719C22.4 2.49375 24.3852 4.24375 25.7906 6.44219C27.2344 8.69531 28 11.3094 28 14C28 17.7406 26.5453 21.257 23.8984 23.8984C21.257 26.5453 17.7406 28 14 28C10.2594 28 6.74297 26.5453 4.10156 23.8984C1.45469 21.2516 1.22342e-07 17.7406 1.66948e-07 14C1.99034e-07 11.3094 0.765625 8.69531 2.21484 6.44219C3.62578 4.24922 5.61094 2.49375 7.95156 1.36719C8.63516 1.04453 9.45 1.3289 9.77812 2.0125Z" fill="#1EAAE7"/>
-															<path d="M8.67896 13.2726C8.41099 13.0047 8.27974 12.6547 8.27974 12.3047C8.27974 11.9547 8.41099 11.6047 8.67896 11.3367L12.1188 7.89685C12.6219 7.39373 13.2891 7.12029 13.9946 7.12029C14.7 7.12029 15.3727 7.3992 15.8704 7.89685L19.3102 11.3367C19.8461 11.8726 19.8461 12.7367 19.3102 13.2726C18.7743 13.8086 17.9102 13.8086 17.3743 13.2726L15.3563 11.2547L15.3563 19.0258C15.3563 19.7804 14.7438 20.3929 13.9891 20.3929C13.2344 20.3929 12.6219 19.7804 12.6219 19.0258L12.6219 11.2492L10.604 13.2672C10.079 13.8031 9.21489 13.8031 8.67896 13.2726Z" fill="#1EAAE7"/>
-															</g>
-															<defs>
-															<clipPath id="clip11">
-															<rect width="28" height="28" fill="white" transform="matrix(1.19249e-08 -1 -1 -1.19249e-08 28 28)"/>
-															</clipPath>
-															</defs>
-														</svg>
-													</span>
-													<span className="fs-20 text-white"
-														onClick={() => setShowTransferForm(true)}  // Open TransferForm on click
-														style={{ cursor: 'pointer' }}>Transfer </span>
-												</div>
-											</div>
-										</div>
+										
 									</div>
 									</div>
 								</div>
@@ -156,9 +158,10 @@ const UserWallet = () => {
 				<div className="col-xl-3 col-xxl-12">
 					<div className="row">
 						<div className="col-xl-12">
-							<Transactions/>
+							<TransactionsUser/>
 						</div>						
 						
+
 						
 					</div>
 				</div>
