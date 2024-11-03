@@ -7,6 +7,7 @@ Centisible is an innovative app that makes your cash transactions smarter and mo
 - **Wallet Balance Management**: Automatically updates the user’s wallet with the balance amount from merchants hence reducing the hassle of cash availability.
 - **Transaction Tracking**: Keep a history of all transactions within the app.
 - **Secure & Fast**: Built with a secure backend using Python along with FastAPI and a responsive frontend using React.
+- **Wealth Management**: User can automatically micro-invest their balance. 
 
 ## 🛠️ Tech Stack
 
@@ -35,7 +36,7 @@ git clone https://github.com/your-username/centisible.git
 cd centisible
 
 npm install
-npm start
+npm start```
 
 ### Backend Repo
 
