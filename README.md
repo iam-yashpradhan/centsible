@@ -40,5 +40,5 @@ git clone https://github.com/your-username/centisible.git
 cd centisible
 
 npm install
-npm start```
+npm start
 
