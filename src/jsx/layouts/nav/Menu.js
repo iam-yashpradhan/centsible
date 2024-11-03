@@ -1,44 +1,44 @@
 export const MenuList = [
     //Dashboard
     {
-        title: 'Dashboard',	
-        classsChange: 'mm-collapse',		
+        title: 'My Wallet',
+        classsChange: 'mm',		
         iconStyle: <i className="flaticon-381-networking"></i>,
-        content: [
+        content: 
             {
-                title: 'Dashboard',
-                to: '/dashboard',					
+                
+                to: '/merchant-wallet',
             },
             // {
             //     title: 'Dashboard Dark',
             //     to: 'dashboard-dark',
-            // },            
-            {
-                title: 'My Wallet',
-                to: '/my-wallet',
-            },
-            {
-                title: 'Invoices',
-                to: '/invoices',
-            },
-            {
-                title: 'Cards Center',
-                to: '/cards-center',                
-            },
-            {
-                title: 'Transactions',
-                to: '/transactions',
+            // },       
+            
+            // Add a condition for user and merchant
+
+            
+            // {
+            //     title: 'Invoices',
+            //     to: '/invoices',
+            // },
+            // {
+            //     title: 'Cards Center',
+            //     to: '/cards-center',                
+            // },
+            // {
+            //     title: 'Transactions',
+            //     to: '/transactions',
                 
-            },
-            {
-                title: 'Transactions Details',
-                to: '/transactions-details',                
-            },			
-			{
-                title: 'Task',
-                to: '/task',                
-            },    
-        ],
+            // },
+            // {
+            //     title: 'Transactions Details',
+            //     to: '/transactions-details',                
+            // },			
+			// {
+            //     title: 'Task',
+            //     to: '/task',                
+            // },    
+        
     },
     
     //Apps

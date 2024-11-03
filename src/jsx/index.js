@@ -13,7 +13,8 @@ import ThemeContext from '../context/ThemeContext';
 
 /// Dashboard
 import Home from './components/Dashboard/Home'
-import MyWallet from './components/Dashboard/MyWallet'
+import MerchantWallet from './components/Dashboard/MyWallet-merchant'
+import UserWallet from './components/Dashboard/MyWallet-user'
 import Invoices from './components/Dashboard/Invoices'
 import CardsCenter from './components/Dashboard/CardsCenter'
 import Transactions from './components/Dashboard/Transactions'
@@ -116,7 +117,8 @@ const Markup = () => {
     /// Dashboard
     { url: '', component: <Home/> },
     { url: 'dashboard', component: <Home/> },
-    { url: 'my-wallet', component: <MyWallet/> },
+    { url: 'merchant-wallet', component: <MerchantWallet/> },
+    { url: 'user-wallet', component: <UserWallet/> },
     { url: 'invoices', component: <Invoices/> },
     { url: 'cards-center', component: <CardsCenter/> },
     { url: 'transactions', component: <Transactions/> },
