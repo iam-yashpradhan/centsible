@@ -27,6 +27,10 @@ Ensure you have the following installed:
 - Python (v3.10 or higher) 🐍
 - FastAPI 📦
 
+### Backend Repo
+
+https://github.com/iam-yashpradhan/centsible-backend
+
 ### Installation
 
 #### Clone the repository
@@ -38,6 +42,3 @@ cd centisible
 npm install
 npm start```
 
-### Backend Repo
-
-https://github.com/iam-yashpradhan/centsible-backend
