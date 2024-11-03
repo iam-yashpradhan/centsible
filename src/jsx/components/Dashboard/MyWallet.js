@@ -2,7 +2,11 @@ import React,{Fragment, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {Dropdown, Modal } from "react-bootstrap";
 import Donut2 from './../Mophy/MyWallet/Donut2';
-import WalletTab from './../Mophy/MyWallet/WalletTab';
+//import WalletTab from './../Mophy/MyWallet/WalletTab';
+import TransferForm from './TransferForm';
+// import { accordionBlog } from './../Mophy/MyWallet/TabData';
+// import { IconGreen, CompleteBlog, AccordBox } from './../Mophy/MyWallet/TabData';
+
 
 import avt1 from './../../../images/avatar/15.png';
 import avt2 from './../../../images/avatar/16.png';
@@ -18,6 +22,22 @@ const contentBlog = [
 
 const MyWallet = () => {
 	const [sendMessage, setSendMessage] = useState(false);
+	const [showTransferForm, setShowTransferForm] = useState(false);
+	//const [transactions, setTransactions] = useState(accordionBlog);
+	// const handleTransfer = (userId, amount) => {
+    //     const newTransaction = {
+    //         image: '', // Add a placeholder image if necessary
+    //         title: userId,
+    //         subtitle: 'Online Shop',
+    //         date: new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
+    //         icon: <IconGreen />,  // You can adjust icon based on status if needed
+    //         price: `+$${amount}`,
+    //         status: <CompleteBlog />,
+    //         cardbody: <AccordBox />,
+    //     };
+    //     accordionBlog.unshift(newTransaction);  // Add to the start of the array
+	// 	setTransactions([newTransaction, ...transactions]);
+    // };
 	return(
 		<Fragment>
 			<div className="form-head mb-4">
@@ -129,10 +149,14 @@ const MyWallet = () => {
 								</div>
 							</div>
 						</div>						
-						<WalletTab /> 				
+						// {/* <WalletTab transactions={transactions} /> 				 */}
 						
 					</div>
 				</div>
+				<TransferForm
+                show={showTransferForm}
+                handleClose={() => setShowTransferForm(false)}
+            />
 				<div className="col-xl-3 col-xxl-12">
 					<div className="row">
 						<div className="col-xl-12 col-xxl-6 col-sm-6">
@@ -152,7 +176,9 @@ const MyWallet = () => {
 												</defs>
 											</svg>
 										</span>
-										<span className="fs-20 text-white">Transfer </span>
+										<span className="fs-20 text-white"
+                                            onClick={() => setShowTransferForm(true)}  // Open TransferForm on click
+                                            style={{ cursor: 'pointer' }}>Transfer </span>
 									</div>
 								</div>
 							</div>

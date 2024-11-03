@@ -8,28 +8,28 @@ import avt13 from './../../../../images/avatar/13.png';
 import avt14 from './../../../../images/avatar/14.png';
 
 
-const accordionBlog = [
-	{	
-		image: avt10, title: 'XYZ STore ID', subtitle: 'Online Shop', date: 'June 1, 2023',
-		icon: <IconGreen />,  price: '+$5,553' , status: <CompleteBlog />, cardbody: <AccordBox />,
-	},
-	{
-		image: avt11, title: 'Andrew Lee', date: 'June 3, 2023',
-		icon: <IconRed />,  	 price: '+$2,351' , status: <CancelBlog />, cardbody: <AccordBox />,
-	},
-	{
-		image: avt12, title: 'Olivia Brownlee', date: 'June 4, 2023',
-		icon: <IconGreen />,  price: '+$3,453' , status: <CompleteBlog />, cardbody: <AccordBox />,
-	},
-	{
-		image: avt13, title: 'Popo Store', subtitle: 'Online Shop', date: 'June 6, 2023',
-		icon: <IconGreen />,  price: '+$6,124' , status: <PendingBlog />, cardbody: <AccordBox />,
-	},
-	{	
-		image: avt14, title: 'Peter Parkur', date: 'June 9, 2023',
-		icon: <IconRed />,    price: '+$2,624' , status: <PendingBlog />, cardbody: <AccordBox />,
-	},
-];
+// const accordionBlog = [
+// 	{	
+// 		image: avt10, title: 'XYZ STore ID', subtitle: 'Online Shop', date: 'June 1, 2023',
+// 		icon: <IconGreen />,  price: '+$5,553' , status: <CompleteBlog />, cardbody: <AccordBox />,
+// 	},
+// 	{
+// 		image: avt11, title: 'Andrew Lee', date: 'June 3, 2023',
+// 		icon: <IconRed />,  	 price: '+$2,351' , status: <CancelBlog />, cardbody: <AccordBox />,
+// 	},
+// 	{
+// 		image: avt12, title: 'Olivia Brownlee', date: 'June 4, 2023',
+// 		icon: <IconGreen />,  price: '+$3,453' , status: <CompleteBlog />, cardbody: <AccordBox />,
+// 	},
+// 	{
+// 		image: avt13, title: 'Popo Store', subtitle: 'Online Shop', date: 'June 6, 2023',
+// 		icon: <IconGreen />,  price: '+$6,124' , status: <PendingBlog />, cardbody: <AccordBox />,
+// 	},
+// 	{	
+// 		image: avt14, title: 'Peter Parkur', date: 'June 9, 2023',
+// 		icon: <IconRed />,    price: '+$2,624' , status: <PendingBlog />, cardbody: <AccordBox />,
+// 	},
+// ];
 
 
 const TabData = () =>{
@@ -126,6 +126,6 @@ function AccordBox(){
 		</>
 	)
 }
-export {accordionBlog,IconRed,PendingBlog,
-	IconGreen, CompleteBlog, AccordBox};	
-export default TabData;
+// export {accordionBlog,IconRed,PendingBlog,
+// 	IconGreen, CompleteBlog, AccordBox};	
+//export default TabData;

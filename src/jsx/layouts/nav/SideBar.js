@@ -143,16 +143,7 @@ const SideBar = () => {
                   }
                 })} 
             </ul>
-            <div className="copyright">
-              <p><strong>Mophy React Payment Admin Dashboard</strong> © 2023 All Rights Reserved</p>
-              <p>Made with{" "}
-                <span                  
-                  className="heart"
-                  onClick={()=>heartBlast()}
-                ></span>{" "}
-                  by DexignZone
-              </p>
-            </div>
+            
 			    </PerfectScrollbar>
         </div>
     );
